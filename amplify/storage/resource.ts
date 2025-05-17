@@ -4,11 +4,13 @@ export const storage = defineStorage({
   name: 'arbovida',
   isDefault: true,
    access: (allow) => ({
-    'cursos/*': [
-        allow.authenticated.to(['read', 'write', 'delete']),
+    'arbovida.org/cursos/*': [
+        allow.authenticated.to(['read']),
+        allow.groups(['admin', 'teacher']).to(['read', 'write', 'delete']),
+    ],
+    'arbovida.org/website/*': [
+        allow.authenticated.to(['read']),
+        allow.groups(['admin', 'website']).to(['read', 'write', 'delete']),
     ]
    })
 });
-
-
-
