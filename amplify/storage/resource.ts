@@ -5,12 +5,12 @@ export const storage = defineStorage({
   isDefault: true,
    access: (allow) => ({
     'arbovida.org/cursos/*': [
-        allow.authenticated.to(['read']),
         allow.groups(['admin', 'teacher']).to(['read', 'write', 'delete']),
+        allow.authenticated.to(['read']),
     ],
     'arbovida.org/website/*': [
-        allow.authenticated.to(['read']),
         allow.groups(['admin', 'website']).to(['read', 'write', 'delete']),
+        allow.authenticated.to(['read']),
     ]
    })
 });
